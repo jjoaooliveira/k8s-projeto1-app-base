@@ -1,17 +1,17 @@
 <?php
 $servername = "";
-$username = "root";
-$password = "Senha123";
+$username = "postgres";
+$password = "123";
 $database = "meubanco";
 
 // Criar conexão
 
 
-$link = new mysqli($servername, $username, $password, $database);
+$link = pg_connect($servername, $username, $password, $database);
 
 /* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
+if (pg_last_error()) {
+    printf("Connect failed: %s\n", pg_last_error());
     exit();
 }
 
